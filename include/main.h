@@ -22,8 +22,8 @@
 #define TIME_CMD "seconds"
 #define SYSINFO_CMD "stats"
 
-#define CMD_SIZE 256
-#define ARGS_SIZE 16
+#define CMD_SIZE 1024
+#define ARGS_SIZE 156
 
 #define CONTINUE 1
 
