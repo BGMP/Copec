@@ -1,0 +1,78 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// Copec Shell (Generic)
+//
+// Desc: main.h
+// Archivo de encabezado para Copec Shell.
+//
+// 2022-04-17 (José Benavente & Vicente Bascuñán)
+// Incepción del archivo.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// Macros:
+////////////////////////////////////////////////////////////////////////////////
+
+#define CHDIR_CMD "cd"
+#define PWD_CMD "cwd"
+#define MAKEDIR_CMD "mkdir"
+#define LS_CMD "ls"
+#define EXIT_CMD "Salir"
+#define TIME_CMD "seconds"
+#define SYSINFO_CMD "stats"
+
+#define CMD_SIZE 256
+#define ARGS_SIZE 16
+
+#define CONTINUE 1
+
+////////////////////////////////////////////////////////////////////////////////
+// Prototipos:
+////////////////////////////////////////////////////////////////////////////////
+
+/// "$ cwd"
+extern void cwd();
+
+/// "$ seconds"
+extern void seconds();
+
+/// "$ stats"
+extern void stats();
+
+/// "$ cd <path>"
+extern void cd(char *path);
+
+/// "$ mkdir <path>"
+extern void makedir(char *path);
+
+/// "$ ls"
+extern void listdir();
+
+/// prompt de nuestra Shell
+extern void prompt();
+
+/// método para interpretar la sintáxis de los comandos escritos por el usuario
+extern void parse();
+
+/// método para evaluar los comandos escritos por el usuario
+extern int eval();
+
+////////////////////////////////////////////////////////////////////////////////
+// Globales:
+////////////////////////////////////////////////////////////////////////////////
+
+/// Comando ingresado
+extern char command[CMD_SIZE];
+
+/// Argumentos del comando ingresado
+extern char *args[ARGS_SIZE];
+
+/// Número de argumentos
+extern int argsLength;
+
+/// ID del proceso hijo TODO: Implement fork()
+extern pid_t pid;
+
+/// Último directorio conocido por la Shell
+extern char lastKnownDirectory[256];
