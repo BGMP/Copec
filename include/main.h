@@ -75,4 +75,5 @@ extern int argsLength;
 extern pid_t pid;
 
 /// Último directorio conocido por la Shell
+// - Usado en caso de que cwd() retorne un error
 extern char lastKnownDirectory[256];
