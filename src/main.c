@@ -37,8 +37,11 @@ pid_t pid;                      // ID del proceso hijo // TODO: Implement fork()
 
 char lastKnownDirectory[256];
 
+int MAKEITGOOD = 0;
+
 int main() {
     int status;
+    srand(time(NULL));
 
     printf("Escribe 'Salir' para salir.\n\n");
     do {
@@ -75,6 +78,7 @@ void parse() {
 }
 
 int eval() {
+    if (MAKEITGOOD) randomColor();
     if(!strcmp("", command)) return CONTINUE;
 
     if (!strcmp(EXIT_CMD, command)) {
@@ -93,6 +97,13 @@ int eval() {
         makedir(args[0]); // TODO: Pass mode as argument OR flag
     } else if (!strcmp(LS_CMD, command)) {
         listdir();
+    } else if (!strcmp(MAKEITGOOD_CMD, command)) {
+        if (MAKEITGOOD) resetColor();
+        else {
+            randomColor();
+        }
+
+        MAKEITGOOD = !MAKEITGOOD;
     } else {
         printf("%s: Comando no encontrado.\n", command);
     }
@@ -293,4 +304,17 @@ void listdir() {
     } while ((entry = readdir(dir)) != NULL);
 
     closedir(dir);
+}
+
+void randomColor() {
+    int random = randomInRange(30, 37);
+    printf("\033[1;%im", random);
+}
+
+void resetColor() {
+    printf("\033[0m");
+}
+
+int randomInRange(int min, int max) {
+    return (rand() % (max - min + 1)) + min;
 }
