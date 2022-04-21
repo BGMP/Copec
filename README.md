@@ -1,4 +1,2 @@
-Copec Shell
+Shell
 ===
-
-

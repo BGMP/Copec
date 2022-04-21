@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Copec Shell (Generic)
+// Shell (Generic)
 //
 // Desc: main.h
-// Archivo de encabezado para Copec Shell.
+// Archivo de encabezado para  Shell.
 //
 // 2022-04-17 (José Benavente & Vicente Bascuñán)
 // Incepción del archivo.
@@ -22,11 +22,30 @@
 #define TIME_CMD "seconds"
 #define SYSINFO_CMD "stats"
 #define MAKEITGOOD_CMD "MAKEITGOOD"
+#define CAR_CMD "CAR"
 
 #define CMD_SIZE 1024
 #define ARGS_SIZE 156
 
 #define CONTINUE 1
+
+char * car =
+        "              ¿\n"
+        "              |\n"
+        "              |\n"
+        "              |\n"
+        "              |\n"
+        "              |\n"
+        "     ______   |\n"
+        "    \\ _____\\  |\n"
+        "        / / ,.:..-----▄▄▄▄\n"
+        "       | | |            █████▄▄|¯`':.._ ,---.\n"
+        "      .---. \\__                       .---.  \\\n"
+        "     /     \\-- \\___=================-/     \\  :\n"
+        "    :   o   : /                     :   o   :/\n"
+        "     \\     /-´                       \\     /´\n"
+        "      `---´                           `---´   BGM\n";
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Prototipos:

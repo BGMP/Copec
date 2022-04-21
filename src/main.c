@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Copec Shell (Generic)
+// Shell (Generic)
 //
 // Desc: main.c
-// Archivo principal de Copec Shell.
+// Archivo principal de Shell.
 //
 // 2022-04-17 (José Benavente & Vicente Bascuñán)
 // Incepción del archivo.
@@ -38,6 +38,7 @@ pid_t pid;                      // ID del proceso hijo // TODO: Implement fork()
 char lastKnownDirectory[256];
 
 int MAKEITGOOD = 0;
+
 
 int main() {
     int status;
@@ -104,6 +105,8 @@ int eval() {
         }
 
         MAKEITGOOD = !MAKEITGOOD;
+    } else if (!strcmp(CAR_CMD, command)) {
+        printf("%s", car);
     } else {
         printf("%s: Comando no encontrado.\n", command);
     }
