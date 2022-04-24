@@ -239,8 +239,6 @@ void cd(char *path) {
             printf("La longitud de la ruta es demasiado larga\n");
             break;
         case ENOENT:
-            printf("%s: El archivo no existe\n", path);
-            break;
         case ENOTDIR:
             printf("%s: El directorio no existe\n", path);
             break;
