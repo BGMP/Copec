@@ -239,8 +239,10 @@ void cd(char *path) {
             printf("La longitud de la ruta es demasiado larga\n");
             break;
         case ENOENT:
+            printf("%s: El archivo no existe\n", path);
+            break;
         case ENOTDIR:
-            printf("%s: El directorio o el archivo no existe\n", path);
+            printf("%s: El directorio no existe\n", path);
             break;
         case ENOMEM:
             printf("Memoria de kernel insuficiente\n");
@@ -265,7 +267,7 @@ void makedir(char *path) {
             printf("No se pudo crear el directorio: El archivo ya existe\n");
             break;
         case EFAULT:
-            printf("La ruta apunta fuera de la dirección de espacio accesible\n");
+            printf("Nombre de directorio invalido.\n");
             break;
         case EINVAL:
             printf("La ruta del directorio contiene caracteres inválidos\n");
