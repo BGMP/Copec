@@ -34,9 +34,9 @@ Todos los comandos disponibles en la consola:
   * `mkdir <path>`: Crea un nuevo directorio con el nombre del argumento 'path'. Por defecto, el directorio es generado
   dentro de donde la ruta en donde se encuentre el usuario al momento de la ejecución del comando. Si 'path' contempla
   más de un directorio (a/b/c/dir) el directorio a generar será 'dir' en este caso, dentro de la ruta especificada.
-    * <path>: Nombre del nuevo directorio.
+    * `<path>`: Nombre del nuevo directorio.
   * `cd <path>`: Mueve al usuario dentro del directorio 'path'.
-    * <path>: El nombre de la ruta al cual el usuario desea moverse.
+    * `<path>`: El nombre de la ruta al cual el usuario desea moverse.
   * `Salir`: Termina la ejecución del programa.
 
 #### Comandos de Funcionalidades Extra
