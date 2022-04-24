@@ -36,7 +36,7 @@ Todos los comandos disponibles en la consola:
   más de un directorio (a/b/c/dir) el directorio a generar será 'dir' en este caso, dentro de la ruta especificada.
     * path: Nombre del nuevo directorio.
   * `cd <path>`: Mueve al usuario dentro del directorio 'path'.
-    * path: Nombre de la ruta al cual el usuario desea moverse.
+    * path: Nombre de la ruta a la cual el usuario desea moverse.
   * `Salir`: Termina la ejecución del programa.
 
 #### Comandos de Funcionalidades Extra
