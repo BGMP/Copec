@@ -21,31 +21,14 @@
 #define EXIT_CMD "Salir"
 #define TIME_CMD "seconds"
 #define SYSINFO_CMD "stats"
+
 #define MAKEITGOOD_CMD "MAKEITGOOD"
-#define CAR_CMD "CAR"
+#define JOKER_CMD "JOKER"
 
 #define CMD_SIZE 1024
 #define ARGS_SIZE 156
 
 #define CONTINUE 1
-
-char * car =
-        "              ¿\n"
-        "              |\n"
-        "              |\n"
-        "              |\n"
-        "              |\n"
-        "              |\n"
-        "     ______   |\n"
-        "    \\ _____\\  |\n"
-        "        / / ,.:..-----▄▄▄▄\n"
-        "       | | |            █████▄▄|¯`':.._ ,---.\n"
-        "      .---. \\__                       .---.  \\\n"
-        "     /     \\-- \\___=================-/     \\  :\n"
-        "    :   o   : /                     :   o   :/\n"
-        "     \\     /-´                       \\     /´\n"
-        "      `---´                           `---´   BGM\n";
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Prototipos:
@@ -61,9 +44,11 @@ extern void seconds();
 extern void stats();
 
 /// "$ cd <path>"
+/// @param nombre del directorio al que se desea acceder
 extern void cd(char *path);
 
 /// "$ mkdir <path>"
+/// @param path nombre del directorio que se desea crear
 extern void makedir(char *path);
 
 /// "$ ls"
@@ -82,24 +67,33 @@ extern int eval();
 // Globales:
 ////////////////////////////////////////////////////////////////////////////////
 
-/// Comando ingresado
+/// comando ingresado
 extern char command[CMD_SIZE];
 
-/// Argumentos del comando ingresado
+/// argumentos del comando ingresado
 extern char *args[ARGS_SIZE];
 
-/// Número de argumentos
+/// número de argumentos del comando
 extern int argsLength;
 
-/// ID del proceso hijo TODO: Implement fork()
-extern pid_t pid;
-
-/// Último directorio conocido por la Shell
-// - Usado en caso de que cwd() retorne un error
+/// último directorio conocido por la Shell
+/// usado en caso de que cwd() retorne un error
 extern char lastKnownDirectory[256];
 
+/// flag que indica si nos encontramos en modo multi-color o no
+extern int MAKEITGOOD;
+
+/// retorna un número aleatorio entre min y max
 extern int randomInRange(int min, int max);
 
+/// devuelve el color de la Shell al por defecto
 extern void resetColor();
 
+/// hace que el color de las letras en la Shell cambie aleatoriamente
 extern void randomColor();
+
+/// hace que el color de fondo de la Shell cambie aleatoriamente
+extern void randomBackgroundColor();
+
+/// Mensaje de bienvenida a la Shell
+extern char * welcomeMsg;

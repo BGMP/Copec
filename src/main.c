@@ -30,25 +30,41 @@
 // Globales:
 ////////////////////////////////////////////////////////////////////////////////
 
-char command[CMD_SIZE];         // Comando ingresado
-char *args[ARGS_SIZE];          // Argumentos del comando
-int argsLength;                 // Número de argumentos
-pid_t pid;                      // ID del proceso hijo // TODO: Implement fork()
-
+char command[CMD_SIZE];
+char *args[ARGS_SIZE];
+int argsLength;
 char lastKnownDirectory[256];
-
 int MAKEITGOOD = 0;
+int JOKER = 0;
 
+char * welcomeMsg  = "\n"
+        "              ¿\n"
+        "              |\n"
+        "              |      SHELL SIMULATOR\n"
+        "              |           by\n"
+        "              |      José Benavente\n"
+        "              |            &\n"
+        "     ______   |     Vicente Bascuñán\n"
+        "    \\ _____\\  |\n"
+        "        / / ,.:..-----▄▄▄▄\n"
+        "       | | |            █████▄▄|¯`':.._ ,---.\n"
+        "      .---. \\__                       .---.  \\\n"
+        "     /     \\-- \\___=================-/     \\  :\n"
+        "    :   o   : /                     :   o   :/\n"
+        "     \\     /-´                       \\     /´\n"
+        "      `---´                           `---´   BGM\n"
+        "\n";
 
 int main() {
     int status;
     srand(time(NULL));
 
+    printf("%s", welcomeMsg);
     printf("Escribe 'Salir' para salir.\n\n");
     do {
-        prompt();               // Enviamos el prompt al usuario
-        parse();                // Leemos el comando, y lo almacenamos en "command"
-        status = eval(args);    // Evaluamos el comando, y asignamos la respuesta a "status"
+        prompt();               // enviamos el prompt al usuario
+        parse();                // leemos el comando, y lo almacenamos en "command"
+        status = eval(args);    // evaluamos el comando, y asignamos la respuesta a "status"
     } while (status != EXIT_SUCCESS);
 
     return 0;
@@ -80,6 +96,8 @@ void parse() {
 
 int eval() {
     if (MAKEITGOOD) randomColor();
+    if (JOKER) randomBackgroundColor();
+
     if(!strcmp("", command)) return CONTINUE;
 
     if (!strcmp(EXIT_CMD, command)) {
@@ -95,7 +113,7 @@ int eval() {
     } else if (!strcmp(SYSINFO_CMD, command)) {
         stats();
     } else if (!strcmp(MAKEDIR_CMD, command)) {
-        makedir(args[0]); // TODO: Pass mode as argument OR flag
+        makedir(args[0]);
     } else if (!strcmp(LS_CMD, command)) {
         listdir();
     } else if (!strcmp(MAKEITGOOD_CMD, command)) {
@@ -103,10 +121,13 @@ int eval() {
         else {
             randomColor();
         }
-
         MAKEITGOOD = !MAKEITGOOD;
-    } else if (!strcmp(CAR_CMD, command)) {
-        printf("%s", car);
+    } else if (!strcmp(JOKER_CMD, command)) {
+        if (JOKER) resetColor();
+        else {
+            randomBackgroundColor();
+        }
+        JOKER = !JOKER;
     } else {
         printf("%s: Comando no encontrado.\n", command);
     }
@@ -124,7 +145,6 @@ void cwd() {
     }
 
     printf("%s", lastKnownDirectory);
-
     switch (errno) {
         case EACCES:
             printf("Permisos insuficientes\n");
@@ -316,6 +336,11 @@ void randomColor() {
 
 void resetColor() {
     printf("\033[0m");
+}
+
+void randomBackgroundColor() {
+    int random = randomInRange(40, 47);
+    printf("\033[%im", random);
 }
 
 int randomInRange(int min, int max) {
