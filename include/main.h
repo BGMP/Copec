@@ -5,7 +5,7 @@
 // Desc: main.h
 // Archivo de encabezado para  Shell.
 //
-// 2022-04-17 (José Benavente & Vicente Bascuñán)
+// 2022-04-17 (José Benavente)
 // Incepción del archivo.
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +57,7 @@ extern void listdir();
 /// prompt de nuestra Shell
 extern void prompt();
 
-/// método para interpretar la sintáxis de los comandos escritos por el usuario
+/// método para interpretar la sintaxis de los comandos escritos por el usuario
 extern void parse();
 
 /// método para evaluar los comandos escritos por el usuario

@@ -5,7 +5,7 @@
 // Desc: main.c
 // Archivo principal de Shell.
 //
-// 2022-04-17 (José Benavente & Vicente Bascuñán)
+// 2022-04-17 (José Benavente)
 // Incepción del archivo.
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -43,8 +43,8 @@ char * welcomeMsg  = "\n"
         "              |      SHELL SIMULATOR\n"
         "              |           by\n"
         "              |      José Benavente\n"
-        "              |            &\n"
-        "     ______   |     Vicente Bascuñán\n"
+        "              |"
+        "     ______   |"
         "    \\ _____\\  |\n"
         "        / / ,.:..-----▄▄▄▄\n"
         "       | | |            █████▄▄|¯`':.._ ,---.\n"
