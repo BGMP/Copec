@@ -7,6 +7,9 @@ El propósito específico de este proyecto es ilustrar las llamadas al sistema e
 comandos y argumentos dentro de una consola de comandos.
 
 ### Compilación
+Este proyecto fue diseñado para ser compilado y ejecutado en Linux, por lo que debes contar con este sistema operativo
+para poder llevar a cabo los pasos que se describen a continuación.
+
 Para compilar el programa, ejecutar el script de compilación:
 ```
 ./build.sh
@@ -18,7 +21,6 @@ Para compilar manualmente:
 ```
 cc src/main.c -I include/ -o Shell
 ```
-El binario final tendrá por nombre 'Shell'.
 
 ### Ejecución
 Para ejecutar la Shell, simplemente ejecutar el binario 'Shell'.
