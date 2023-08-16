@@ -1,12 +1,11 @@
-Shell
-===
+# Shell
 Programa en C que simula una Shell, y permite la ejecución de llamadas al sistema de Linux. El uso de las llamadas
 al sistema es realizado mediante comandos.
 
 El propósito específico de este proyecto es ilustrar las llamadas al sistema en Linux, además del manejo básico de
 comandos y argumentos dentro de una consola de comandos.
 
-### Compilación
+## Compilación
 Este proyecto fue diseñado para ser compilado y ejecutado en Linux, por lo que debes contar con este sistema operativo
 para poder llevar a cabo los pasos que se describen a continuación.
 
@@ -22,13 +21,13 @@ Para compilar manualmente:
 cc src/main.c -I include/ -o Shell
 ```
 
-### Ejecución
+## Ejecución
 Para ejecutar la Shell, simplemente ejecutar el binario 'Shell'.
 ```
 ./Shell
 ```
 
-### Comandos
+## Comandos
 Todos los comandos disponibles en la Shell:
   * `cwd`: Imprime en pantalla el directorio actual.
   * `seconds`: Imprime en pantalla la cantidad de segundos transcurridos desde el primero de Enero de 1970 (EPOCH).
@@ -42,7 +41,7 @@ Todos los comandos disponibles en la Shell:
     * path: Nombre de la ruta a la cual el usuario desea moverse.
   * `Salir`: Termina la ejecución del programa.
 
-#### Comandos de Funcionalidades Extra
+## Comandos de Funcionalidades Extra
   * `MAKEITGOOD`: Activa un modo en que la Shell imprime con letras de un color aleatorio. Para desactivarlo basta con 
   usar el comando por segunda vez.
   * `JOKER`: Activa un modo en que la Shell imprime con fondo de un color aleatorio. Para desactivarlo usar el comando
